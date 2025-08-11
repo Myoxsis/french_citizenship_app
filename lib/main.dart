@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'app_router.dart';
 import 'providers/settings_controller.dart';
+import 'data/question_repository.dart';
 import 'theme.dart';
 
 Future<void> main() async {
