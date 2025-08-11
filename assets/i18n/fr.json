@@ -1,0 +1,22 @@
+{
+  "app_title": "Naturalisation – Quiz FR",
+  "home_start_quick": "Quiz rapide",
+  "home_start_exam": "Examen blanc (30)",
+  "home_review_mistakes": "Revoir mes erreurs",
+  "home_stats": "Statistiques",
+  "home_settings": "Réglages",
+  "quiz_question": "Question {index} / {total}",
+  "quiz_submit": "Valider",
+  "quiz_next": "Suivant",
+  "quiz_finish": "Terminer",
+  "results_title": "Résultats",
+  "results_score": "Score",
+  "results_correct": "bonnes réponses",
+  "results_review": "Revoir les erreurs",
+  "settings_title": "Réglages",
+  "settings_language": "Langue",
+  "settings_darkmode": "Mode sombre",
+  "settings_reset": "Réinitialiser les progrès",
+  "dialog_confirm": "Confirmer",
+  "dialog_cancel": "Annuler"
+}

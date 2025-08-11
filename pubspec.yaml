@@ -1,0 +1,39 @@
+name: naturalisation_quiz
+description: Quiz app for French naturalisation with multilingual support.
+publish_to: 'none'
+version: 0.1.0+1
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  # State management & routing
+  flutter_riverpod: ^2.5.1
+  go_router: ^14.2.0
+  # i18n
+  easy_localization: ^3.0.5
+  # Persistence
+  shared_preferences: ^2.2.3
+  # Utils
+  intl: ^0.19.0
+
+  # (optional) Monetization stubs — integrate later
+  # google_mobile_ads: ^5.1.0
+  # in_app_purchase: ^3.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/i18n/en.json
+    - assets/i18n/fr.json
+    - assets/questions/en.json
+    - assets/questions/fr.json

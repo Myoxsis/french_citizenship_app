@@ -1,0 +1,23 @@
+[
+  {
+    "id": "fr_1",
+    "prompt": "Quelle est la devise de la République française ?",
+    "choices": ["Liberté, Égalité, Fraternité", "Unité, Travail, Progrès", "Paix, Travail, Patrie", "Justice, Paix, Solidarité"],
+    "answerIndex": 0,
+    "explanation": "La devise officielle est ‘Liberté, Égalité, Fraternité’."
+  },
+  {
+    "id": "fr_2",
+    "prompt": "Quelle est la langue officielle de la France ?",
+    "choices": ["Le français", "L’anglais", "L’espagnol", "L’allemand"],
+    "answerIndex": 0,
+    "explanation": "La Constitution indique que la langue de la République est le français."
+  },
+  {
+    "id": "fr_3",
+    "prompt": "Quel est l’hymne national français ?",
+    "choices": ["La Marseillaise", "Le Chant des Partisans", "La Carmagnole", "La Maritza"],
+    "answerIndex": 0,
+    "explanation": "‘La Marseillaise’ est l’hymne national depuis 1795 (officiellement rétabli en 1879)."
+  }
+]

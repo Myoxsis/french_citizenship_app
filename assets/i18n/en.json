@@ -1,0 +1,22 @@
+{
+  "app_title": "Naturalisation – FR Quiz",
+  "home_start_quick": "Quick Quiz",
+  "home_start_exam": "Mock Exam (30)",
+  "home_review_mistakes": "Review Mistakes",
+  "home_stats": "Statistics",
+  "home_settings": "Settings",
+  "quiz_question": "Question {index} / {total}",
+  "quiz_submit": "Submit",
+  "quiz_next": "Next",
+  "quiz_finish": "Finish",
+  "results_title": "Results",
+  "results_score": "Score",
+  "results_correct": "correct answers",
+  "results_review": "Review mistakes",
+  "settings_title": "Settings",
+  "settings_language": "Language",
+  "settings_darkmode": "Dark mode",
+  "settings_reset": "Reset progress",
+  "dialog_confirm": "Confirm",
+  "dialog_cancel": "Cancel"
+}

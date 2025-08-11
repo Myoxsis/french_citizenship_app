@@ -1,0 +1,23 @@
+[
+  {
+    "id": "en_1",
+    "prompt": "What is the motto of the French Republic?",
+    "choices": ["Liberty, Equality, Fraternity", "Unity, Work, Progress", "Peace, Work, Fatherland", "Justice, Peace, Solidarity"],
+    "answerIndex": 0,
+    "explanation": "The official motto is ‘Liberté, Égalité, Fraternité’."
+  },
+  {
+    "id": "en_2",
+    "prompt": "What is the official language of France?",
+    "choices": ["French", "English", "Spanish", "German"],
+    "answerIndex": 0,
+    "explanation": "The Constitution states the language of the Republic is French."
+  },
+  {
+    "id": "en_3",
+    "prompt": "What is the French national anthem?",
+    "choices": ["La Marseillaise", "Le Chant des Partisans", "La Carmagnole", "La Maritza"],
+    "answerIndex": 0,
+    "explanation": "‘La Marseillaise’ is the national anthem."
+  }
+]
