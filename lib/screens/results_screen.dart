@@ -12,6 +12,12 @@ class ResultsScreen extends ConsumerWidget {
     final s = ref.watch(quizControllerProvider);
     final score = s?.score ?? 0;
     final total = s?.total ?? 0;
+    final percent = total == 0 ? 0.0 : score / total;
+    final color = percent >= 0.8
+        ? Colors.green
+        : percent >= 0.5
+            ? Colors.orange
+            : Colors.red;
     return Scaffold(
       appBar: AppBar(title: Text('results_title'.tr())),
       body: Center(
@@ -22,12 +28,52 @@ class ResultsScreen extends ConsumerWidget {
               'results_score'.tr(),
               style: Theme.of(context).textTheme.headlineMedium,
             ),
-            const SizedBox(height: 8),
-            Text('$score / $total ${'results_correct'.tr()}'),
             const SizedBox(height: 16),
+            Stack(
+              alignment: Alignment.center,
+              children: [
+                SizedBox(
+                  height: 150,
+                  width: 150,
+                  child: CircularProgressIndicator(
+                    value: percent,
+                    strokeWidth: 12,
+                    backgroundColor:
+                        Theme.of(context).colorScheme.surfaceVariant,
+                    valueColor: AlwaysStoppedAnimation(color),
+                  ),
+                ),
+                Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Icon(
+                      percent >= 0.8
+                          ? Icons.emoji_events
+                          : Icons.sentiment_satisfied_alt,
+                      size: 48,
+                      color: color,
+                    ),
+                    const SizedBox(height: 4),
+                    Text(
+                      '$score / $total',
+                      style: Theme.of(context).textTheme.headlineMedium,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 8),
+            Text('results_correct'.tr()),
+            const SizedBox(height: 24),
             FilledButton(
               onPressed: () => context.go('/review'),
               child: Text('results_review'.tr()),
+            ),
+            const SizedBox(height: 8),
+            OutlinedButton(
+              onPressed: () =>
+                  context.go('/quiz${total == 30 ? '?mode=exam' : ''}'),
+              child: Text('results_retry'.tr()),
             ),
           ],
         ),
