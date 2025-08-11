@@ -66,7 +66,7 @@ class ResultsScreen extends ConsumerWidget {
             Text('results_correct'.tr()),
             const SizedBox(height: 24),
             FilledButton(
-              onPressed: () => context.go('/review'),
+              onPressed: () => context.push('/review'),
               child: Text('results_review'.tr()),
             ),
             const SizedBox(height: 8),
