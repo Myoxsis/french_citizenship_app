@@ -44,13 +44,40 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
         padding: const EdgeInsets.all(12),
         child: Column(
           children: [
-            QuestionCard(
-              question: s.questions[s.index],
-              selectedIndex: s.answers[s.index],
-              onSelected: (i) =>
-                  ref.read(quizControllerProvider.notifier).answerCurrent(i),
+            TweenAnimationBuilder<double>(
+              duration: const Duration(milliseconds: 300),
+              tween: Tween<double>(
+                begin: s.index / s.total,
+                end: (s.index + 1) / s.total,
+              ),
+              builder: (context, value, _) =>
+                  LinearProgressIndicator(value: value),
             ),
-            const Spacer(),
+            const SizedBox(height: 12),
+            Expanded(
+              child: AnimatedSwitcher(
+                duration: const Duration(milliseconds: 300),
+                transitionBuilder: (child, animation) => FadeTransition(
+                  opacity: animation,
+                  child: SlideTransition(
+                    position: Tween<Offset>(
+                      begin: const Offset(0.1, 0),
+                      end: Offset.zero,
+                    ).animate(animation),
+                    child: child,
+                  ),
+                ),
+                child: QuestionCard(
+                  key: ValueKey(s.index),
+                  question: s.questions[s.index],
+                  selectedIndex: s.answers[s.index],
+                  onSelected: (i) => ref
+                      .read(quizControllerProvider.notifier)
+                      .answerCurrent(i),
+                ),
+              ),
+            ),
+            const SizedBox(height: 12),
             Row(
               children: [
                 Expanded(
