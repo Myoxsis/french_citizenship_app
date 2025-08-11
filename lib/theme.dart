@@ -11,7 +11,7 @@ ThemeData buildTheme(bool dark) {
     ),
     textTheme: base.textTheme.apply(fontFamily: 'Roboto'),
     visualDensity: VisualDensity.comfortable,
-    cardTheme: const CardTheme(
+    cardTheme: const CardThemeData(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       elevation: 1,
       shape: RoundedRectangleBorder(

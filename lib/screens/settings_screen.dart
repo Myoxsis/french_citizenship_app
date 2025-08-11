@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/settings_controller.dart';
 import '../services/preferences_service.dart';
+import '../data/question_repository.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -17,11 +18,13 @@ class SettingsScreen extends ConsumerWidget {
         children: [
           ListTile(
             title: Text('settings_language'.tr()),
-            trailing: DropdownButton(
+            trailing: DropdownButton<QuizLocale>(
               value: settings.locale,
-              onChanged: (val) => ref
-                  .read(settingsControllerProvider.notifier)
-                  .setLocale(val as QuizLocale),
+              onChanged: (val) => val == null
+                  ? null
+                  : ref
+                      .read(settingsControllerProvider.notifier)
+                      .setLocale(val),
               items: const [
                 DropdownMenuItem(value: QuizLocale.fr, child: Text('FR')),
                 DropdownMenuItem(value: QuizLocale.en, child: Text('EN')),

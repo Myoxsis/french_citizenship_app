@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../services/preferences_service.dart';
-import '../data/question_repository.dart';
 import '../models/question.dart';
 import '../providers/settings_controller.dart';
+import '../providers/quiz_controller.dart';
+import '../data/question_repository.dart';
 
 class ReviewScreen extends ConsumerWidget {
   const ReviewScreen({super.key});
@@ -40,7 +41,8 @@ class ReviewScreen extends ConsumerWidget {
 
   Future<(Set<String>, List<Question>)> _load(WidgetRef ref) async {
     final prefs = ref.read(preferencesServiceProvider);
-    final repo = ref.read(questionRepositoryProvider);
+    final QuestionRepository repo =
+        ref.read(questionRepositoryProvider);
     final locale = ref.read(settingsControllerProvider).locale;
     final mistakes = await prefs.getMistakes();
     final qs = await repo.load(locale);
