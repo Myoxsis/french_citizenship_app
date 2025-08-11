@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../providers/settings_controller.dart';
-import '../widgets/primary_button.dart';
 
 class HomeScreen extends ConsumerWidget {
   const HomeScreen({super.key});
@@ -11,39 +10,98 @@ class HomeScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final locale = ref.watch(settingsControllerProvider).locale;
+
+    final actions = [
+      _HomeAction(
+        label: 'home_start_quick'.tr(),
+        icon: Icons.flash_on,
+        onTap: () => context.go('/quiz?mode=quick'),
+      ),
+      _HomeAction(
+        label: 'home_start_exam'.tr(),
+        icon: Icons.school,
+        onTap: () => context.go('/quiz?mode=exam'),
+      ),
+      _HomeAction(
+        label: 'home_review_mistakes'.tr(),
+        icon: Icons.refresh,
+        onTap: () => context.go('/review'),
+      ),
+      _HomeAction(
+        label: 'home_settings'.tr(),
+        icon: Icons.settings,
+        onTap: () => context.go('/settings'),
+      ),
+    ];
+
     return Scaffold(
       appBar: AppBar(title: Text('app_title'.tr())),
       body: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            const SizedBox(height: 8),
-            PrimaryButton(
-              label: 'home_start_quick'.tr(),
-              onPressed: () => context.go('/quiz?mode=quick'),
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 2,
+                crossAxisSpacing: 16,
+                mainAxisSpacing: 16,
+                childAspectRatio: 1,
+                children:
+                    actions.map((a) => _ActionCard(action: a)).toList(),
+              ),
             ),
-            PrimaryButton(
-              label: 'home_start_exam'.tr(),
-              onPressed: () => context.go('/quiz?mode=exam'),
-            ),
-            const SizedBox(height: 12),
-            FilledButton.tonal(
-              onPressed: () => context.go('/review'),
-              child: Text('home_review_mistakes'.tr()),
-            ),
-            const SizedBox(height: 8),
-            OutlinedButton(
-              onPressed: () => context.go('/settings'),
-              child: Text('home_settings'.tr()),
-            ),
-            const Spacer(),
+            const SizedBox(height: 16),
             Text(
               'Locale: ${locale.name.toUpperCase()}',
               textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.labelMedium,
             ),
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HomeAction {
+  final String label;
+  final IconData icon;
+  final VoidCallback onTap;
+
+  const _HomeAction({
+    required this.label,
+    required this.icon,
+    required this.onTap,
+  });
+}
+
+class _ActionCard extends StatelessWidget {
+  final _HomeAction action;
+
+  const _ActionCard({required this.action});
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(16),
+      ),
+      child: InkWell(
+        borderRadius: BorderRadius.circular(16),
+        onTap: action.onTap,
+        child: Padding(
+          padding: const EdgeInsets.all(16),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(action.icon, size: 40),
+              const SizedBox(height: 12),
+              Text(
+                action.label,
+                textAlign: TextAlign.center,
+              ),
+            ],
+          ),
         ),
       ),
     );
