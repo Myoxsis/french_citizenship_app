@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../app_router.dart';
 import '../providers/quiz_controller.dart';
 
 class ResultsScreen extends ConsumerWidget {
@@ -66,13 +67,15 @@ class ResultsScreen extends ConsumerWidget {
             Text('results_correct'.tr()),
             const SizedBox(height: 24),
             FilledButton(
-              onPressed: () => context.push('/review'),
+              onPressed: () => context.pushNamed(AppRoute.review.name),
               child: Text('results_review'.tr()),
             ),
             const SizedBox(height: 8),
             OutlinedButton(
-              onPressed: () =>
-                  context.go('/quiz${total == 30 ? '?mode=exam' : ''}'),
+              onPressed: () => context.goNamed(
+                AppRoute.quiz.name,
+                queryParameters: total == 30 ? {'mode': 'exam'} : null,
+              ),
               child: Text('results_retry'.tr()),
             ),
           ],

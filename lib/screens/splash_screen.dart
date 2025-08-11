@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../app_router.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,7 +14,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(
       const Duration(milliseconds: 900),
-      () => context.go('/home'),
+      () => context.goNamed(AppRoute.home.name),
     );
   }
 

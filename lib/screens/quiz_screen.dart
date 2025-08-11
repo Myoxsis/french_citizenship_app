@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../app_router.dart';
 import '../providers/quiz_controller.dart';
 import '../widgets/question_card.dart';
 
@@ -103,6 +104,6 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
   void _finishOrNext(BuildContext context, bool finished) {
     ref.read(quizControllerProvider.notifier).next();
-    context.go('/results');
+    context.goNamed(AppRoute.results.name);
   }
 }

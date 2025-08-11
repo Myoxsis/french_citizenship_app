@@ -2,6 +2,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import '../app_router.dart';
 import '../providers/settings_controller.dart';
 
 class HomeScreen extends ConsumerWidget {
@@ -15,22 +16,28 @@ class HomeScreen extends ConsumerWidget {
       _HomeAction(
         label: 'home_start_quick'.tr(),
         icon: Icons.flash_on,
-        onTap: () => context.go('/quiz?mode=quick'),
+        onTap: () => context.goNamed(
+          AppRoute.quiz.name,
+          queryParameters: {'mode': 'quick'},
+        ),
       ),
       _HomeAction(
         label: 'home_start_exam'.tr(),
         icon: Icons.school,
-        onTap: () => context.go('/quiz?mode=exam'),
+        onTap: () => context.goNamed(
+          AppRoute.quiz.name,
+          queryParameters: {'mode': 'exam'},
+        ),
       ),
       _HomeAction(
         label: 'home_review_mistakes'.tr(),
         icon: Icons.refresh,
-        onTap: () => context.go('/review'),
+        onTap: () => context.goNamed(AppRoute.review.name),
       ),
       _HomeAction(
         label: 'home_settings'.tr(),
         icon: Icons.settings,
-        onTap: () => context.go('/settings'),
+        onTap: () => context.goNamed(AppRoute.settings.name),
       ),
     ];
 
