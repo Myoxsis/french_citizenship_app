@@ -84,7 +84,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                 Expanded(
                   child: ElevatedButton(
                     onPressed: s.index == s.total - 1
-                        ? () => _finishOrNext(context, s.finished)
+                        ? () => _finishOrNext(context)
                         : () =>
                               ref.read(quizControllerProvider.notifier).next(),
                     child: Text(
@@ -102,8 +102,11 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     );
   }
 
-  void _finishOrNext(BuildContext context, bool finished) {
-    ref.read(quizControllerProvider.notifier).next();
+  void _finishOrNext(BuildContext context) {
+    final s = ref.read(quizControllerProvider);
+    if (s != null && !s.finished) {
+      ref.read(quizControllerProvider.notifier).next();
+    }
     context.goNamed(AppRoute.results.name);
   }
 }
