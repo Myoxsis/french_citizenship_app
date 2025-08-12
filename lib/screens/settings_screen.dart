@@ -2,7 +2,6 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/settings_controller.dart';
-import '../services/preferences_service.dart';
 import '../data/question_repository.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -57,11 +56,13 @@ class SettingsScreen extends ConsumerWidget {
                 ),
               );
               if (ok == true) {
-                await PreferencesService().resetAll();
+                await ref.read(preferencesServiceProvider).resetAll();
                 // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(
                   context,
-                ).showSnackBar(const SnackBar(content: Text('Reset done.')));
+                ).showSnackBar(
+                  SnackBar(content: Text('settings_reset_done'.tr())),
+                );
               }
             },
             child: Text('settings_reset'.tr()),

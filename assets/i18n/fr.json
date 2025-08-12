@@ -19,6 +19,7 @@
   "settings_language": "Langue",
   "settings_darkmode": "Mode sombre",
   "settings_reset": "Réinitialiser les progrès",
+  "settings_reset_done": "Progrès réinitialisés.",
   "dialog_confirm": "Confirmer",
   "dialog_cancel": "Annuler"
 }
