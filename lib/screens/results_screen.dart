@@ -72,10 +72,12 @@ class ResultsScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             OutlinedButton(
-              onPressed: () => context.goNamed(
-                AppRoute.quiz.name,
-                queryParameters: total == 30 ? {'mode': 'exam'} : null,
-              ),
+              onPressed: () => total == 30
+                  ? context.goNamed(
+                      AppRoute.quiz.name,
+                      queryParameters: {'mode': 'exam'},
+                    )
+                  : context.goNamed(AppRoute.quiz.name),
               child: Text('results_retry'.tr()),
             ),
           ],
