@@ -5,6 +5,7 @@ import '../models/question.dart';
 import '../providers/settings_controller.dart';
 import '../providers/quiz_controller.dart';
 import '../data/question_repository.dart';
+import '../widgets/app_back_button.dart';
 
 class ReviewScreen extends ConsumerWidget {
   const ReviewScreen({super.key});
@@ -12,7 +13,10 @@ class ReviewScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Review')),
+      appBar: AppBar(
+        leading: const AppBackButton(),
+        title: const Text('Review'),
+      ),
       body: FutureBuilder<(Set<String>, List<Question>)>(
         future: _load(ref),
         builder: (context, snapshot) {

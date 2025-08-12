@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../app_router.dart';
 import '../providers/quiz_controller.dart';
+import '../widgets/app_back_button.dart';
 
 class ResultsScreen extends ConsumerWidget {
   const ResultsScreen({super.key});
@@ -20,7 +21,10 @@ class ResultsScreen extends ConsumerWidget {
             ? Colors.orange
             : Colors.red;
     return Scaffold(
-      appBar: AppBar(title: Text('results_title'.tr())),
+      appBar: AppBar(
+        leading: const AppBackButton(),
+        title: Text('results_title'.tr()),
+      ),
       body: Center(
         child: Column(
           mainAxisSize: MainAxisSize.min,

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/settings_controller.dart';
 import '../data/question_repository.dart';
+import '../widgets/app_back_button.dart';
 
 class SettingsScreen extends ConsumerWidget {
   const SettingsScreen({super.key});
@@ -11,7 +12,10 @@ class SettingsScreen extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final settings = ref.watch(settingsControllerProvider);
     return Scaffold(
-      appBar: AppBar(title: Text('settings_title'.tr())),
+      appBar: AppBar(
+        leading: const AppBackButton(),
+        title: Text('settings_title'.tr()),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [

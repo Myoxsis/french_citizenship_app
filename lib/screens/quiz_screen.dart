@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import '../app_router.dart';
 import '../providers/quiz_controller.dart';
 import '../widgets/question_card.dart';
+import '../widgets/app_back_button.dart';
 
 class QuizScreen extends ConsumerStatefulWidget {
   final bool examMode;
@@ -35,6 +36,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
     return Scaffold(
       appBar: AppBar(
+        leading: const AppBackButton(),
         title: Text(
           'quiz_question'.tr(
             namedArgs: {'index': '${s.index + 1}', 'total': '${s.total}'},
