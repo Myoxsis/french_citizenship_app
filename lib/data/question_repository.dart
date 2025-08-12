@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 import '../models/question.dart';
 
@@ -11,7 +12,12 @@ class QuestionRepository {
       QuizLocale.fr => 'assets/questions/fr.json',
       QuizLocale.en => 'assets/questions/en.json',
     };
-    final jsonStr = await rootBundle.loadString(path);
-    return Question.listFromJsonString(jsonStr);
+    try {
+      final jsonStr = await rootBundle.loadString(path);
+      return Question.listFromJsonString(jsonStr);
+    } catch (e) {
+      debugPrint('Failed to load questions from $path: $e');
+      return [];
+    }
   }
 }
