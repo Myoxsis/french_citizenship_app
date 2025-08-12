@@ -80,6 +80,11 @@ class ResultsScreen extends ConsumerWidget {
                   : context.goNamed(AppRoute.quiz.name),
               child: Text('results_retry'.tr()),
             ),
+            const SizedBox(height: 8),
+            TextButton(
+              onPressed: () => context.goNamed(AppRoute.home.name),
+              child: Text('results_home'.tr()),
+            ),
           ],
         ),
       ),
