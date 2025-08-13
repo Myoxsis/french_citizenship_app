@@ -1,4 +1,3 @@
-import 'dart:math';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../models/question.dart';
 import '../data/question_repository.dart';
@@ -42,10 +41,8 @@ class QuizController extends StateNotifier<QuizState?> {
     final repo = _ref.read(questionRepositoryProvider);
     final locale = _ref.read(settingsControllerProvider).locale;
     final list = await repo.load(locale);
-    final rng = Random();
-    final pool = List<Question>.from(list)..shuffle(rng);
     final selected =
-        examMode ? pool.take(15).toList() : pool.take(5).toList();
+        examMode ? list.take(15).toList() : list.take(5).toList();
     state = QuizState(
       questions: selected,
       answers: List<int?>.filled(selected.length, null),

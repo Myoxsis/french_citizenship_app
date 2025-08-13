@@ -1,3 +1,4 @@
+import 'dart:math';
 import 'package:flutter/foundation.dart' show debugPrint;
 import 'package:flutter/services.dart' show rootBundle;
 import '../models/question.dart';
@@ -14,7 +15,9 @@ class QuestionRepository {
     };
     try {
       final jsonStr = await rootBundle.loadString(path);
-      return Question.listFromJsonString(jsonStr);
+      final questions = Question.listFromJsonString(jsonStr);
+      questions.shuffle(Random());
+      return questions;
     } catch (e) {
       debugPrint('Failed to load questions from $path: $e');
       return [];
