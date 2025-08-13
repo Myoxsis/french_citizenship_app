@@ -2,22 +2,481 @@
   {
     "id": "en_1",
     "prompt": "What is the motto of the French Republic?",
-    "choices": ["Liberty, Equality, Fraternity", "Unity, Work, Progress", "Peace, Work, Fatherland", "Justice, Peace, Solidarity"],
+    "choices": [
+      "Liberty, Equality, Fraternity",
+      "Unity, Work, Progress",
+      "Peace, Work, Fatherland",
+      "Justice, Peace, Solidarity"
+    ],
     "answerIndex": 0,
-    "explanation": "The official motto is ‘Liberté, Égalité, Fraternité’."
+    "explanation": "The official motto is “Liberty, Equality, Fraternity.”"
   },
   {
     "id": "en_2",
-    "prompt": "What is the official language of France?",
-    "choices": ["French", "English", "Spanish", "German"],
-    "answerIndex": 0,
-    "explanation": "The Constitution states the language of the Republic is French."
+    "prompt": "What is the national anthem of France?",
+    "choices": [
+      "Le Chant du Départ",
+      "La Marseillaise",
+      "La Carmagnole",
+      "La Parisienne"
+    ],
+    "answerIndex": 1,
+    "explanation": "France’s national anthem is “La Marseillaise.”"
   },
   {
     "id": "en_3",
-    "prompt": "What is the French national anthem?",
-    "choices": ["La Marseillaise", "Le Chant des Partisans", "La Carmagnole", "La Maritza"],
+    "prompt": "When is France’s national day?",
+    "choices": [
+      "November 11",
+      "May 1",
+      "July 14",
+      "May 8"
+    ],
+    "answerIndex": 2,
+    "explanation": "Bastille Day is celebrated on July 14."
+  },
+  {
+    "id": "en_4",
+    "prompt": "What are the colors of the French flag?",
+    "choices": [
+      "Blue, white, red",
+      "Blue, yellow, red",
+      "Green, white, red",
+      "Black, red, gold"
+    ],
     "answerIndex": 0,
-    "explanation": "‘La Marseillaise’ is the national anthem."
+    "explanation": "The tricolor flag is blue, white, and red."
+  },
+  {
+    "id": "en_5",
+    "prompt": "According to Article 1 of the Constitution, France is a Republic that is…",
+    "choices": [
+      "monarchic and social",
+      "indivisible, secular, democratic and social",
+      "federal and religious",
+      "secular and monarchic"
+    ],
+    "answerIndex": 1,
+    "explanation": "Article 1 defines the Republic as indivisible, secular, democratic and social."
+  },
+  {
+    "id": "en_6",
+    "prompt": "What does French secularism (laïcité) mean?",
+    "choices": [
+      "State neutrality and freedom of conscience",
+      "Ban on all religions",
+      "Exclusive public funding of one faith",
+      "Mandatory state religion"
+    ],
+    "answerIndex": 0,
+    "explanation": "Laïcité guarantees state neutrality and freedom of conscience."
+  },
+  {
+    "id": "en_7",
+    "prompt": "What is the legal voting age in France?",
+    "choices": [
+      "16",
+      "18",
+      "21",
+      "25"
+    ],
+    "answerIndex": 1,
+    "explanation": "Citizens can vote from age 18."
+  },
+  {
+    "id": "en_8",
+    "prompt": "What is the capital of France?",
+    "choices": [
+      "Lyon",
+      "Marseille",
+      "Paris",
+      "Bordeaux"
+    ],
+    "answerIndex": 2,
+    "explanation": "The capital is Paris."
+  },
+  {
+    "id": "en_9",
+    "prompt": "What is the longest river in metropolitan France?",
+    "choices": [
+      "The Seine",
+      "The Rhône",
+      "The Loire",
+      "The Garonne"
+    ],
+    "answerIndex": 2,
+    "explanation": "The Loire is the longest river in metropolitan France."
+  },
+  {
+    "id": "en_10",
+    "prompt": "What is the highest peak in France?",
+    "choices": [
+      "Barre des Écrins",
+      "Mont Ventoux",
+      "Pic du Midi",
+      "Mont Blanc"
+    ],
+    "answerIndex": 3,
+    "explanation": "Mont Blanc is the highest point in France and the Alps."
+  },
+  {
+    "id": "en_11",
+    "prompt": "Which of the following are overseas departments and regions (DROM)?",
+    "choices": [
+      "Guadeloupe, Martinique, French Guiana, Réunion, Mayotte",
+      "Andorra, Monaco, Luxembourg",
+      "Corsica, Sardinia, Sicily",
+      "San Marino, Vatican, Malta"
+    ],
+    "answerIndex": 0,
+    "explanation": "The DROM are Guadeloupe, Martinique, French Guiana, Réunion, and Mayotte."
+  },
+  {
+    "id": "en_12",
+    "prompt": "What does Marianne symbolize?",
+    "choices": [
+      "The monarchy",
+      "The French Republic",
+      "The European Union",
+      "The Resistance only"
+    ],
+    "answerIndex": 1,
+    "explanation": "Marianne is the allegory of the Republic and its values."
+  },
+  {
+    "id": "en_13",
+    "prompt": "How is the separation of powers organized in France?",
+    "choices": [
+      "Executive, legislative, judicial",
+      "Presidential, royal, popular",
+      "Military, civil, religious",
+      "National, regional, communal"
+    ],
+    "answerIndex": 0,
+    "explanation": "Powers are separated into executive, legislative, and judicial branches."
+  },
+  {
+    "id": "en_14",
+    "prompt": "Which chambers make up the French Parliament?",
+    "choices": [
+      "Council of State and Court of Cassation",
+      "National Assembly and Senate",
+      "Constitutional Council and Senate",
+      "National Assembly and Constitutional Council"
+    ],
+    "answerIndex": 1,
+    "explanation": "Parliament is bicameral: National Assembly and Senate."
+  },
+  {
+    "id": "en_15",
+    "prompt": "What is the official language of the Republic?",
+    "choices": [
+      "Latin",
+      "French",
+      "English",
+      "Breton"
+    ],
+    "answerIndex": 1,
+    "explanation": "The language of the Republic is French."
+  },
+  {
+    "id": "en_16",
+    "prompt": "What currency is used in France?",
+    "choices": [
+      "The franc",
+      "The pound",
+      "The dollar",
+      "The euro"
+    ],
+    "answerIndex": 3,
+    "explanation": "France uses the euro."
+  },
+  {
+    "id": "en_17",
+    "prompt": "Which founding 1789 text proclaims rights and liberties?",
+    "choices": [
+      "The Civil Code",
+      "The Declaration of the Rights of Man and of the Citizen",
+      "The Treaty of Versailles",
+      "The Charter of 1814"
+    ],
+    "answerIndex": 1,
+    "explanation": "The 1789 Declaration sets out fundamental rights and liberties."
+  },
+  {
+    "id": "en_18",
+    "prompt": "Which treaty founded the EEC in 1957?",
+    "choices": [
+      "The Treaty of Maastricht",
+      "The Treaty of Lisbon",
+      "The Treaty of Rome",
+      "The Treaty of Paris"
+    ],
+    "answerIndex": 2,
+    "explanation": "The 1957 Treaty of Rome created the EEC, precursor to the EU."
+  },
+  {
+    "id": "en_19",
+    "prompt": "What is the motto of the European Union?",
+    "choices": [
+      "Strength and honor",
+      "United in diversity",
+      "Peace and prosperity",
+      "Work, family, homeland"
+    ],
+    "answerIndex": 1,
+    "explanation": "The EU’s motto is “United in diversity.”"
+  },
+  {
+    "id": "en_20",
+    "prompt": "Who may introduce a bill in France?",
+    "choices": [
+      "Only citizens by referendum",
+      "The government and members of Parliament",
+      "Only the President",
+      "Only the government"
+    ],
+    "answerIndex": 1,
+    "explanation": "Legislative initiative is shared by the government and parliamentarians."
+  },
+  {
+    "id": "en_21",
+    "prompt": "What does equality between women and men guarantee?",
+    "choices": [
+      "Priority to men",
+      "The same rights and duties",
+      "Different rights depending on situations",
+      "Priority to women"
+    ],
+    "answerIndex": 1,
+    "explanation": "Equality guarantees the same rights and duties for women and men."
+  },
+  {
+    "id": "en_22",
+    "prompt": "When was the Fifth Republic established?",
+    "choices": [
+      "1946",
+      "1958",
+      "1875",
+      "1962"
+    ],
+    "answerIndex": 1,
+    "explanation": "The Constitution of the Fifth Republic dates from 1958."
+  },
+  {
+    "id": "en_23",
+    "prompt": "What is the main role of the Constitutional Council?",
+    "choices": [
+      "Deliver criminal justice",
+      "Review laws for constitutionality",
+      "Govern the country",
+      "Vote the state budget"
+    ],
+    "answerIndex": 1,
+    "explanation": "It ensures that laws comply with the Constitution."
+  },
+  {
+    "id": "en_24",
+    "prompt": "Which are symbols of the French Republic?",
+    "choices": [
+      "The crown, scepter, ermine",
+      "The tricolor flag, La Marseillaise, Marianne",
+      "The eagle, olive branch, lyre",
+      "The shamrock, harp, unicorn"
+    ],
+    "answerIndex": 1,
+    "explanation": "Symbols include the tricolor flag, the anthem “La Marseillaise,” and Marianne."
+  },
+  {
+    "id": "en_25",
+    "prompt": "What is France’s form of government?",
+    "choices": [
+      "Constitutional monarchy",
+      "Republic",
+      "Empire",
+      "Federation"
+    ],
+    "answerIndex": 1,
+    "explanation": "France is a Republic."
+  },
+  {
+    "id": "en_26",
+    "prompt": "What is the principle of national sovereignty?",
+    "choices": [
+      "It belongs to the people",
+      "It belongs to the monarch",
+      "It belongs to the army",
+      "It belongs to the regions"
+    ],
+    "answerIndex": 0,
+    "explanation": "National sovereignty belongs to the people, exercised by representatives and referendum."
+  },
+  {
+    "id": "en_27",
+    "prompt": "What is the famous 1905 law in France?",
+    "choices": [
+      "Separation of Churches and State",
+      "Mandatory military service",
+      "40‑hour workweek",
+      "Creation of Social Security"
+    ],
+    "answerIndex": 0,
+    "explanation": "The 1905 law establishes separation of Churches and State."
+  },
+  {
+    "id": "en_28",
+    "prompt": "What is the age of civil majority in France?",
+    "choices": [
+      "16",
+      "18",
+      "21",
+      "17"
+    ],
+    "answerIndex": 1,
+    "explanation": "Civil majority is 18."
+  },
+  {
+    "id": "en_29",
+    "prompt": "Which document is required to travel in the Schengen Area (for a French citizen)?",
+    "choices": [
+      "A driver’s license",
+      "A national ID card or a passport",
+      "A family record book",
+      "A health insurance card"
+    ],
+    "answerIndex": 1,
+    "explanation": "A valid ID card or passport is sufficient for a French citizen."
+  },
+  {
+    "id": "en_30",
+    "prompt": "What is the purpose of the baccalauréat?",
+    "choices": [
+      "High‑school leaving diploma",
+      "Driver’s license",
+      "Residence permit",
+      "Military certificate"
+    ],
+    "answerIndex": 0,
+    "explanation": "The baccalauréat marks the end of secondary studies and access to higher education."
+  },
+  {
+    "id": "en_31",
+    "prompt": "What is the role of the mayor in a commune?",
+    "choices": [
+      "Head of State",
+      "Head of the municipal executive",
+      "President of the Senate",
+      "Supreme judge"
+    ],
+    "answerIndex": 1,
+    "explanation": "The mayor leads the municipal executive and implements council decisions."
+  },
+  {
+    "id": "en_32",
+    "prompt": "How many metropolitan regions does France have since 2016?",
+    "choices": [
+      "13",
+      "12",
+      "18",
+      "22"
+    ],
+    "answerIndex": 0,
+    "explanation": "Since 2016, metropolitan France has 13 regions (18 including overseas)."
+  },
+  {
+    "id": "en_33",
+    "prompt": "What is the role of Social Security in France?",
+    "choices": [
+      "Provide protection against life’s risks",
+      "Organize elections",
+      "Define foreign policy",
+      "Draft the Constitution"
+    ],
+    "answerIndex": 0,
+    "explanation": "It protects against illness, maternity, work accidents, old age, etc."
+  },
+  {
+    "id": "en_34",
+    "prompt": "What does equality before the law mean?",
+    "choices": [
+      "Privileges based on origin",
+      "The same rules for everyone",
+      "Priority to the richest",
+      "Priority to a religion"
+    ],
+    "answerIndex": 1,
+    "explanation": "The law is the same for all, without distinction."
+  },
+  {
+    "id": "en_35",
+    "prompt": "Which national emblem often represents France and liberty?",
+    "choices": [
+      "The Gallic rooster",
+      "The unicorn",
+      "The lion",
+      "The eagle"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Gallic rooster is a common emblem of France and liberty."
+  },
+  {
+    "id": "en_36",
+    "prompt": "What is the highest court of the judicial order in France?",
+    "choices": [
+      "The Court of Cassation",
+      "The Council of State",
+      "The Court of Auditors",
+      "The Assize Court"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Court of Cassation is the highest court of the judicial order."
+  },
+  {
+    "id": "en_37",
+    "prompt": "What is the highest court of the administrative order in France?",
+    "choices": [
+      "The Council of State",
+      "The Court of Cassation",
+      "The Criminal Court",
+      "The Senate"
+    ],
+    "answerIndex": 0,
+    "explanation": "The Council of State is the highest administrative court."
+  },
+  {
+    "id": "en_38",
+    "prompt": "What is a referendum?",
+    "choices": [
+      "A direct vote by citizens on an issue",
+      "An appointment by the government",
+      "A presidential decree",
+      "A court judgment"
+    ],
+    "answerIndex": 0,
+    "explanation": "A referendum is a direct vote by citizens on a text or issue."
+  },
+  {
+    "id": "en_39",
+    "prompt": "What is the purpose of compulsory schooling?",
+    "choices": [
+      "To educate citizens and transmit knowledge",
+      "To train only athletes",
+      "To prepare for military service",
+      "To learn driving"
+    ],
+    "answerIndex": 0,
+    "explanation": "School aims at instruction, personal development, and citizenship."
+  },
+  {
+    "id": "en_40",
+    "prompt": "What is the role of the prefecture?",
+    "choices": [
+      "To represent the State in the department",
+      "To vote national laws",
+      "To deliver justice",
+      "To lead the European Union"
+    ],
+    "answerIndex": 0,
+    "explanation": "The prefecture represents the State at the departmental level and implements public policies."
   }
 ]

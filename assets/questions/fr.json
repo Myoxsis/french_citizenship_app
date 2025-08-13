@@ -2,22 +2,481 @@
   {
     "id": "fr_1",
     "prompt": "Quelle est la devise de la République française ?",
-    "choices": ["Liberté, Égalité, Fraternité", "Unité, Travail, Progrès", "Paix, Travail, Patrie", "Justice, Paix, Solidarité"],
+    "choices": [
+      "Liberté, Égalité, Fraternité",
+      "Unité, Travail, Progrès",
+      "Paix, Travail, Patrie",
+      "Justice, Paix, Solidarité"
+    ],
     "answerIndex": 0,
-    "explanation": "La devise officielle est ‘Liberté, Égalité, Fraternité’."
+    "explanation": "La devise officielle est « Liberté, Égalité, Fraternité »."
   },
   {
     "id": "fr_2",
-    "prompt": "Quelle est la langue officielle de la France ?",
-    "choices": ["Le français", "L’anglais", "L’espagnol", "L’allemand"],
-    "answerIndex": 0,
-    "explanation": "La Constitution indique que la langue de la République est le français."
+    "prompt": "Quel est l’hymne national de la France ?",
+    "choices": [
+      "Le Chant du Départ",
+      "La Marseillaise",
+      "La Carmagnole",
+      "La Parisienne"
+    ],
+    "answerIndex": 1,
+    "explanation": "L’hymne national s’appelle « La Marseillaise »."
   },
   {
     "id": "fr_3",
-    "prompt": "Quel est l’hymne national français ?",
-    "choices": ["La Marseillaise", "Le Chant des Partisans", "La Carmagnole", "La Maritza"],
+    "prompt": "Quelle est la fête nationale en France ?",
+    "choices": [
+      "11 novembre",
+      "1er mai",
+      "14 juillet",
+      "8 mai"
+    ],
+    "answerIndex": 2,
+    "explanation": "La fête nationale est célébrée le 14 juillet."
+  },
+  {
+    "id": "fr_4",
+    "prompt": "Quelles sont les couleurs du drapeau français ?",
+    "choices": [
+      "Bleu, blanc, rouge",
+      "Bleu, jaune, rouge",
+      "Vert, blanc, rouge",
+      "Noir, rouge, or"
+    ],
     "answerIndex": 0,
-    "explanation": "‘La Marseillaise’ est l’hymne national depuis 1795 (officiellement rétabli en 1879)."
+    "explanation": "Le drapeau tricolore est bleu, blanc, rouge."
+  },
+  {
+    "id": "fr_5",
+    "prompt": "Selon l’article 1er de la Constitution, la France est une République…",
+    "choices": [
+      "monarchique et sociale",
+      "indivisible, laïque, démocratique et sociale",
+      "fédérale et religieuse",
+      "laïque et monarchique"
+    ],
+    "answerIndex": 1,
+    "explanation": "L’article 1er qualifie la République d’indivisible, laïque, démocratique et sociale."
+  },
+  {
+    "id": "fr_6",
+    "prompt": "Que signifie la laïcité en France ?",
+    "choices": [
+      "Neutralité de l’État et liberté de conscience",
+      "Interdiction de toute religion",
+      "Financement public exclusif d’un culte",
+      "Religion d’État obligatoire"
+    ],
+    "answerIndex": 0,
+    "explanation": "La laïcité garantit la neutralité de l’État et la liberté de conscience."
+  },
+  {
+    "id": "fr_7",
+    "prompt": "Quel est l’âge légal pour voter en France ?",
+    "choices": [
+      "16 ans",
+      "18 ans",
+      "21 ans",
+      "25 ans"
+    ],
+    "answerIndex": 1,
+    "explanation": "Le droit de vote est accordé à partir de 18 ans."
+  },
+  {
+    "id": "fr_8",
+    "prompt": "Quelle est la capitale de la France ?",
+    "choices": [
+      "Lyon",
+      "Marseille",
+      "Paris",
+      "Bordeaux"
+    ],
+    "answerIndex": 2,
+    "explanation": "La capitale est Paris."
+  },
+  {
+    "id": "fr_9",
+    "prompt": "Quelle est la plus longue rivière de France métropolitaine ?",
+    "choices": [
+      "La Seine",
+      "Le Rhône",
+      "La Loire",
+      "La Garonne"
+    ],
+    "answerIndex": 2,
+    "explanation": "La Loire est la plus longue rivière de France métropolitaine."
+  },
+  {
+    "id": "fr_10",
+    "prompt": "Quel est le plus haut sommet de France ?",
+    "choices": [
+      "La Barre des Écrins",
+      "Le Mont Ventoux",
+      "Le Pic du Midi",
+      "Le Mont Blanc"
+    ],
+    "answerIndex": 3,
+    "explanation": "Le Mont Blanc est le point culminant des Alpes et de la France."
+  },
+  {
+    "id": "fr_11",
+    "prompt": "Quels sont des départements et régions d’outre-mer (DROM) ?",
+    "choices": [
+      "Guadeloupe, Martinique, Guyane, La Réunion, Mayotte",
+      "Andorre, Monaco, Luxembourg",
+      "Corse, Sardaigne, Sicile",
+      "Saint-Marin, Vatican, Malte"
+    ],
+    "answerIndex": 0,
+    "explanation": "Les DROM sont la Guadeloupe, la Martinique, la Guyane, La Réunion et Mayotte."
+  },
+  {
+    "id": "fr_12",
+    "prompt": "Que symbolise Marianne ?",
+    "choices": [
+      "La monarchie",
+      "La République française",
+      "L’Union européenne",
+      "La Résistance uniquement"
+    ],
+    "answerIndex": 1,
+    "explanation": "Marianne est l’allégorie de la République et de ses valeurs."
+  },
+  {
+    "id": "fr_13",
+    "prompt": "Comment se traduit la séparation des pouvoirs en France ?",
+    "choices": [
+      "Exécutif, législatif, judiciaire",
+      "Présidentiel, royal, populaire",
+      "Militaire, civil, religieux",
+      "National, régional, communal"
+    ],
+    "answerIndex": 0,
+    "explanation": "Les pouvoirs sont séparés en exécutif, législatif et judiciaire."
+  },
+  {
+    "id": "fr_14",
+    "prompt": "De quelles chambres le Parlement français est-il composé ?",
+    "choices": [
+      "Conseil d’État et Cour de cassation",
+      "Assemblée nationale et Sénat",
+      "Conseil constitutionnel et Sénat",
+      "Assemblée nationale et Conseil constitutionnel"
+    ],
+    "answerIndex": 1,
+    "explanation": "Le Parlement est bicaméral : Assemblée nationale et Sénat."
+  },
+  {
+    "id": "fr_15",
+    "prompt": "Quelle est la langue officielle de la République ?",
+    "choices": [
+      "Le latin",
+      "Le français",
+      "L’anglais",
+      "Le breton"
+    ],
+    "answerIndex": 1,
+    "explanation": "La langue de la République est le français."
+  },
+  {
+    "id": "fr_16",
+    "prompt": "Quelle monnaie utilise la France ?",
+    "choices": [
+      "Le franc",
+      "La livre",
+      "Le dollar",
+      "L’euro"
+    ],
+    "answerIndex": 3,
+    "explanation": "La France utilise l’euro."
+  },
+  {
+    "id": "fr_17",
+    "prompt": "Quel texte fondateur de 1789 proclame des droits et libertés ?",
+    "choices": [
+      "Le Code civil",
+      "La Déclaration des droits de l’homme et du citoyen",
+      "Le Traité de Versailles",
+      "La Charte de 1814"
+    ],
+    "answerIndex": 1,
+    "explanation": "La Déclaration de 1789 énonce les droits et libertés fondamentaux."
+  },
+  {
+    "id": "fr_18",
+    "prompt": "Quel traité a fondé la CEE en 1957 ?",
+    "choices": [
+      "Le Traité de Maastricht",
+      "Le Traité de Lisbonne",
+      "Le Traité de Rome",
+      "Le Traité de Paris"
+    ],
+    "answerIndex": 2,
+    "explanation": "Le Traité de Rome (1957) fonde la CEE, ancêtre de l’Union européenne."
+  },
+  {
+    "id": "fr_19",
+    "prompt": "Quelle est la devise de l’Union européenne ?",
+    "choices": [
+      "Force et honneur",
+      "Unie dans la diversité",
+      "Paix et prospérité",
+      "Travail, famille, patrie"
+    ],
+    "answerIndex": 1,
+    "explanation": "La devise de l’UE est « Unie dans la diversité »."
+  },
+  {
+    "id": "fr_20",
+    "prompt": "Qui peut déposer une proposition ou un projet de loi en France ?",
+    "choices": [
+      "Uniquement les citoyens par référendum",
+      "Le gouvernement et les parlementaires",
+      "Uniquement le Président de la République",
+      "Uniquement le gouvernement"
+    ],
+    "answerIndex": 1,
+    "explanation": "L’initiative des lois est partagée entre le gouvernement et les parlementaires."
+  },
+  {
+    "id": "fr_21",
+    "prompt": "Que garantit l’égalité entre les femmes et les hommes ?",
+    "choices": [
+      "La priorité aux hommes",
+      "Les mêmes droits et devoirs",
+      "Des droits différents selon les situations",
+      "La priorité aux femmes"
+    ],
+    "answerIndex": 1,
+    "explanation": "Le principe d’égalité implique les mêmes droits et devoirs pour tous."
+  },
+  {
+    "id": "fr_22",
+    "prompt": "En quelle année a été établie la Ve République ?",
+    "choices": [
+      "1946",
+      "1958",
+      "1875",
+      "1962"
+    ],
+    "answerIndex": 1,
+    "explanation": "La Constitution de la Ve République date de 1958."
+  },
+  {
+    "id": "fr_23",
+    "prompt": "Quel est le rôle principal du Conseil constitutionnel ?",
+    "choices": [
+      "Rendre la justice pénale",
+      "Contrôler la conformité des lois à la Constitution",
+      "Gouverner le pays",
+      "Voter le budget de l’État"
+    ],
+    "answerIndex": 1,
+    "explanation": "Il vérifie que les lois respectent la Constitution."
+  },
+  {
+    "id": "fr_24",
+    "prompt": "Quels sont des symboles de la République française ?",
+    "choices": [
+      "La couronne, le sceptre, l’hermine",
+      "Le drapeau tricolore, La Marseillaise, Marianne",
+      "L’aigle, l’olivier, la lyre",
+      "Le trèfle, la harpe, la licorne"
+    ],
+    "answerIndex": 1,
+    "explanation": "Parmi les symboles : le drapeau tricolore, l’hymne « La Marseillaise » et Marianne."
+  },
+  {
+    "id": "fr_25",
+    "prompt": "Quelle est la forme de gouvernement de la France ?",
+    "choices": [
+      "Monarchie constitutionnelle",
+      "République",
+      "Empire",
+      "Fédération"
+    ],
+    "answerIndex": 1,
+    "explanation": "La France est une République."
+  },
+  {
+    "id": "fr_26",
+    "prompt": "Quel est le principe de la souveraineté nationale ?",
+    "choices": [
+      "Elle appartient au peuple",
+      "Elle appartient au monarque",
+      "Elle appartient à l’armée",
+      "Elle appartient aux régions"
+    ],
+    "answerIndex": 0,
+    "explanation": "La souveraineté nationale appartient au peuple qui l’exerce par ses représentants et par référendum."
+  },
+  {
+    "id": "fr_27",
+    "prompt": "Quelle est la loi de 1905 célèbre en France ?",
+    "choices": [
+      "Séparation des Églises et de l’État",
+      "Service militaire obligatoire",
+      "Semaine de 40 heures",
+      "Création de la Sécurité sociale"
+    ],
+    "answerIndex": 0,
+    "explanation": "La loi de 1905 organise la séparation des Églises et de l’État."
+  },
+  {
+    "id": "fr_28",
+    "prompt": "Quel est l’âge de la majorité civile en France ?",
+    "choices": [
+      "16 ans",
+      "18 ans",
+      "21 ans",
+      "17 ans"
+    ],
+    "answerIndex": 1,
+    "explanation": "La majorité civile est fixée à 18 ans."
+  },
+  {
+    "id": "fr_29",
+    "prompt": "Quel document est nécessaire pour voyager dans l’espace Schengen (pour un citoyen français) ?",
+    "choices": [
+      "Un permis de conduire",
+      "Une carte nationale d’identité ou un passeport",
+      "Un livret de famille",
+      "Une carte Vitale"
+    ],
+    "answerIndex": 1,
+    "explanation": "Une carte d’identité ou un passeport en cours de validité suffit pour un citoyen français."
+  },
+  {
+    "id": "fr_30",
+    "prompt": "Quel est l’objectif du baccalauréat ?",
+    "choices": [
+      "Diplôme de fin d’études secondaires",
+      "Permis de conduire",
+      "Titre de séjour",
+      "Certificat militaire"
+    ],
+    "answerIndex": 0,
+    "explanation": "Le baccalauréat sanctionne la fin des études secondaires et permet l’accès à l’enseignement supérieur."
+  },
+  {
+    "id": "fr_31",
+    "prompt": "Quel est le rôle du maire dans une commune ?",
+    "choices": [
+      "Chef de l’État",
+      "Chef de l’exécutif communal",
+      "Président du Sénat",
+      "Juge suprême"
+    ],
+    "answerIndex": 1,
+    "explanation": "Le maire dirige l’exécutif municipal et applique les décisions du conseil municipal."
+  },
+  {
+    "id": "fr_32",
+    "prompt": "Combien de régions métropolitaines compte la France depuis 2016 ?",
+    "choices": [
+      "13",
+      "12",
+      "18",
+      "22"
+    ],
+    "answerIndex": 0,
+    "explanation": "Depuis 2016, la France métropolitaine compte 13 régions (18 avec l’outre‑mer)."
+  },
+  {
+    "id": "fr_33",
+    "prompt": "Quel est le rôle de la Sécurité sociale ?",
+    "choices": [
+      "Assurer une protection contre les risques de la vie",
+      "Organiser les élections",
+      "Définir la politique étrangère",
+      "Rédiger la Constitution"
+    ],
+    "answerIndex": 0,
+    "explanation": "Elle protège contre maladie, maternité, accidents du travail, vieillesse, etc."
+  },
+  {
+    "id": "fr_34",
+    "prompt": "Que signifie le principe d’égalité devant la loi ?",
+    "choices": [
+      "Des privilèges selon l’origine",
+      "Les mêmes règles pour tous",
+      "Priorité aux plus riches",
+      "Priorité à une religion"
+    ],
+    "answerIndex": 1,
+    "explanation": "La loi est la même pour tous, sans distinction."
+  },
+  {
+    "id": "fr_35",
+    "prompt": "Quel est l’emblème national représentant la liberté sur les armoiries ?",
+    "choices": [
+      "Le coq gaulois",
+      "La licorne",
+      "Le lion",
+      "L’aigle"
+    ],
+    "answerIndex": 0,
+    "explanation": "Le coq gaulois est un emblème fréquemment utilisé pour représenter la France et la liberté."
+  },
+  {
+    "id": "fr_36",
+    "prompt": "Quel est l’organe juridictionnel suprême pour l’ordre judiciaire ?",
+    "choices": [
+      "La Cour de cassation",
+      "Le Conseil d’État",
+      "La Cour des comptes",
+      "La Cour d’assises"
+    ],
+    "answerIndex": 0,
+    "explanation": "La Cour de cassation est la plus haute juridiction de l’ordre judiciaire."
+  },
+  {
+    "id": "fr_37",
+    "prompt": "Quel est l’organe suprême pour l’ordre administratif ?",
+    "choices": [
+      "Le Conseil d’État",
+      "La Cour de cassation",
+      "Le Tribunal correctionnel",
+      "Le Sénat"
+    ],
+    "answerIndex": 0,
+    "explanation": "Le Conseil d’État est la plus haute juridiction de l’ordre administratif."
+  },
+  {
+    "id": "fr_38",
+    "prompt": "Qu’est-ce qu’un référendum ?",
+    "choices": [
+      "Un vote direct des citoyens sur une question",
+      "Une nomination par le gouvernement",
+      "Un décret présidentiel",
+      "Un jugement de la Cour"
+    ],
+    "answerIndex": 0,
+    "explanation": "Le référendum est un vote par lequel les citoyens se prononcent directement sur un texte."
+  },
+  {
+    "id": "fr_39",
+    "prompt": "Quel est le but de l’école obligatoire ?",
+    "choices": [
+      "Former des citoyens et transmettre des connaissances",
+      "Former uniquement des sportifs",
+      "Préparer au service militaire",
+      "Apprendre à conduire"
+    ],
+    "answerIndex": 0,
+    "explanation": "L’école vise l’instruction, l’épanouissement et la citoyenneté."
+  },
+  {
+    "id": "fr_40",
+    "prompt": "Quel est le rôle de la préfecture ?",
+    "choices": [
+      "Représenter l’État dans le département",
+      "Voter les lois nationales",
+      "Rendre la justice",
+      "Diriger l’Union européenne"
+    ],
+    "answerIndex": 0,
+    "explanation": "La préfecture représente l’État au niveau départemental et met en œuvre les politiques publiques."
   }
 ]
