@@ -5,9 +5,12 @@ import 'theme_extensions.dart';
 
 ThemeData buildTheme(bool dark) {
   // Brand colors
-  const primary = Color(0xFF0055A4);
-  const secondary = Color(0xFFEF4135);
-  const neutral = Color(0xFF6C757D);
+  const primary = Color(0xFF003A70);
+  const secondary = Color(0xFFE64545);
+  const neutral = Color(0xFF64748B);
+
+  Color onColor(Color color) =>
+      color.computeLuminance() > 0.5 ? Colors.black : Colors.white;
 
   final scheme = ColorScheme.fromSeed(
     seedColor: primary,
@@ -15,9 +18,9 @@ ThemeData buildTheme(bool dark) {
     tertiary: neutral,
     brightness: dark ? Brightness.dark : Brightness.light,
   ).copyWith(
-    onPrimary: Colors.white,
-    onSecondary: Colors.white,
-    onTertiary: dark ? Colors.black : Colors.white,
+    onPrimary: onColor(primary),
+    onSecondary: onColor(secondary),
+    onTertiary: onColor(neutral),
   );
 
   final statusColors = StatusColors(
