@@ -5,6 +5,8 @@ class PreferencesService {
   static const _kDarkModeKey = 'dark_mode';
   static const _kMistakesKey = 'mistake_ids'; // comma-separated question IDs
   static const _kBestScoreKey = 'best_score_15';
+  static const _kHeartsKey = 'hearts_count';
+  static const _kNextHeartKey = 'next_heart_ms';
 
   Future<SharedPreferences> get _prefs async => SharedPreferences.getInstance();
 
@@ -52,5 +54,25 @@ class PreferencesService {
   Future<void> resetAll() async {
     final p = await _prefs;
     await p.clear();
+  }
+
+  Future<int> getHeartsCount() async {
+    final p = await _prefs;
+    return p.getInt(_kHeartsKey) ?? 5;
+  }
+
+  Future<int?> getNextHeartTimestamp() async {
+    final p = await _prefs;
+    return p.getInt(_kNextHeartKey);
+  }
+
+  Future<void> setHeartsState(int hearts, DateTime? next) async {
+    final p = await _prefs;
+    await p.setInt(_kHeartsKey, hearts);
+    if (next == null) {
+      await p.remove(_kNextHeartKey);
+    } else {
+      await p.setInt(_kNextHeartKey, next.millisecondsSinceEpoch);
+    }
   }
 }

@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import '../app_router.dart';
 import '../providers/quiz_controller.dart';
+import '../providers/heart_controller.dart';
 import '../widgets/app_back_button.dart';
 
 class ResultsScreen extends ConsumerWidget {
@@ -76,12 +77,24 @@ class ResultsScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             OutlinedButton(
-              onPressed: () => total == 15
-                  ? context.goNamed(
+              onPressed: () {
+                final cost = total == 15 ? 2 : 1;
+                final ok = ref.read(heartsControllerProvider.notifier).spend(cost);
+                if (ok) {
+                  if (total == 15) {
+                    context.goNamed(
                       AppRoute.quiz.name,
                       queryParameters: {'mode': 'exam'},
-                    )
-                  : context.goNamed(AppRoute.quiz.name),
+                    );
+                  } else {
+                    context.goNamed(AppRoute.quiz.name);
+                  }
+                } else {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(content: Text('home_no_hearts'.tr())),
+                  );
+                }
+              },
               child: Text('results_retry'.tr()),
             ),
             const SizedBox(height: 8),
