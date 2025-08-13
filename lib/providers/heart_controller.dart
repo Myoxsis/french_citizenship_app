@@ -88,6 +88,20 @@ class HeartsController extends StateNotifier<HeartsState> {
     return true;
   }
 
+  Future<void> addHeart() async {
+    _applyRecovery();
+    if (state.hearts >= maxHearts) return;
+    var hearts = state.hearts + 1;
+    DateTime? next = state.nextRegen;
+    if (hearts >= maxHearts) {
+      hearts = maxHearts;
+      next = null;
+    }
+    state = HeartsState(hearts: hearts, nextRegen: next);
+    await _save();
+    _setupTimer();
+  }
+
   Future<void> reset() async {
     state = const HeartsState(hearts: maxHearts, nextRegen: null);
     await _save();
