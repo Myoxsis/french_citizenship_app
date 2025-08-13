@@ -38,3 +38,4 @@ flutter:
     - assets/i18n/fr.json
     - assets/questions/en.json
     - assets/questions/fr.json
+    - assets/app_logo.png
