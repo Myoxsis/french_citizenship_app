@@ -4,7 +4,7 @@ class PreferencesService {
   static const _kLocaleKey = 'locale_code'; // 'fr' or 'en'
   static const _kDarkModeKey = 'dark_mode';
   static const _kMistakesKey = 'mistake_ids'; // comma-separated question IDs
-  static const _kBestScoreKey = 'best_score_30';
+  static const _kBestScoreKey = 'best_score_15';
 
   Future<SharedPreferences> get _prefs async => SharedPreferences.getInstance();
 
@@ -39,12 +39,12 @@ class PreferencesService {
     return raw == null || raw.isEmpty ? {} : raw.split(',').toSet();
   }
 
-  Future<void> setBestScore30(int score) async {
+  Future<void> setBestScore15(int score) async {
     final p = await _prefs;
     await p.setInt(_kBestScoreKey, score);
   }
 
-  Future<int> getBestScore30() async {
+  Future<int> getBestScore15() async {
     final p = await _prefs;
     return p.getInt(_kBestScoreKey) ?? 0;
   }

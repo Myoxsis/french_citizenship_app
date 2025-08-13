@@ -44,7 +44,8 @@ class QuizController extends StateNotifier<QuizState?> {
     final list = await repo.load(locale);
     final rng = Random();
     final pool = List<Question>.from(list)..shuffle(rng);
-    final selected = examMode ? pool.take(30).toList() : pool.take(10).toList();
+    final selected =
+        examMode ? pool.take(15).toList() : pool.take(5).toList();
     state = QuizState(
       questions: selected,
       answers: List<int?>.filled(selected.length, null),
@@ -87,8 +88,10 @@ class QuizController extends StateNotifier<QuizState?> {
       }
       await prefs.saveMistakes(mistakes);
       final score = s.score;
-      final prevBest = await prefs.getBestScore30();
-      if (s.total == 30 && score > prevBest) await prefs.setBestScore30(score);
+      final prevBest = await prefs.getBestScore15();
+      if (s.total == 15 && score > prevBest) {
+        await prefs.setBestScore15(score);
+      }
       _ref.read(analyticsProvider).logEvent('quiz_finish', {
         'score': score,
         'total': s.total,
