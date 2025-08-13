@@ -76,7 +76,7 @@ class ResultsScreen extends ConsumerWidget {
             ),
             const SizedBox(height: 8),
             OutlinedButton(
-              onPressed: () => total == 30
+              onPressed: () => total == 15
                   ? context.goNamed(
                       AppRoute.quiz.name,
                       queryParameters: {'mode': 'exam'},
