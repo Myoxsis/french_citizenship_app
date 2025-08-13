@@ -21,5 +21,6 @@
   "settings_reset": "Reset progress",
   "settings_reset_done": "Progress reset.",
   "dialog_confirm": "Confirm",
-  "dialog_cancel": "Cancel"
+  "dialog_cancel": "Cancel",
+  "home_no_hearts": "Not enough hearts"
 }

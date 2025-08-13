@@ -21,5 +21,6 @@
   "settings_reset": "Réinitialiser les progrès",
   "settings_reset_done": "Progrès réinitialisés.",
   "dialog_confirm": "Confirmer",
-  "dialog_cancel": "Annuler"
+  "dialog_cancel": "Annuler",
+  "home_no_hearts": "Pas assez de coeurs"
 }

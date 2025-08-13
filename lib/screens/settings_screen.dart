@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../providers/settings_controller.dart';
 import '../data/question_repository.dart';
+import '../providers/heart_controller.dart';
 import '../widgets/app_back_button.dart';
 
 class SettingsScreen extends ConsumerWidget {
@@ -61,6 +62,7 @@ class SettingsScreen extends ConsumerWidget {
               );
               if (ok == true) {
                 await ref.read(preferencesServiceProvider).resetAll();
+                await ref.read(heartsControllerProvider.notifier).reset();
                 // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(
                   context,

@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../app_router.dart';
 import '../providers/settings_controller.dart';
+import '../providers/heart_controller.dart';
 import '../services/ad_manager.dart';
 
 class HomeScreen extends ConsumerStatefulWidget {
@@ -37,23 +38,42 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     final locale = ref.watch(settingsControllerProvider).locale;
+    final hearts = ref.watch(heartsControllerProvider);
 
     final actions = [
       _HomeAction(
         label: 'home_start_quick'.tr(),
         icon: Icons.flash_on,
-        onTap: () => context.goNamed(
-          AppRoute.quiz.name,
-          queryParameters: {'mode': 'quick'},
-        ),
+        onTap: () {
+          final ok = ref.read(heartsControllerProvider.notifier).spend(1);
+          if (ok) {
+            context.goNamed(
+              AppRoute.quiz.name,
+              queryParameters: {'mode': 'quick'},
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('home_no_hearts'.tr())),
+            );
+          }
+        },
       ),
       _HomeAction(
         label: 'home_start_exam'.tr(),
         icon: Icons.school,
-        onTap: () => context.goNamed(
-          AppRoute.quiz.name,
-          queryParameters: {'mode': 'exam'},
-        ),
+        onTap: () {
+          final ok = ref.read(heartsControllerProvider.notifier).spend(2);
+          if (ok) {
+            context.goNamed(
+              AppRoute.quiz.name,
+              queryParameters: {'mode': 'exam'},
+            );
+          } else {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(content: Text('home_no_hearts'.tr())),
+            );
+          }
+        },
       ),
       _HomeAction(
         label: 'home_review_mistakes'.tr(),
@@ -76,6 +96,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               padding: const EdgeInsets.all(16),
               child: Column(
                 children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: List.generate(
+                      HeartsController.maxHearts,
+                      (i) => Icon(
+                        i < hearts.hearts
+                            ? Icons.favorite
+                            : Icons.favorite_border,
+                        color: Colors.red,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
                   Expanded(
                     child: GridView.count(
                       crossAxisCount: 2,
