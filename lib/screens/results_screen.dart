@@ -2,16 +2,51 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:google_mobile_ads/google_mobile_ads.dart';
 import '../app_router.dart';
 import '../providers/quiz_controller.dart';
 import '../providers/heart_controller.dart';
+import '../providers/settings_controller.dart';
+import '../services/ad_manager.dart';
 import '../widgets/app_back_button.dart';
 
-class ResultsScreen extends ConsumerWidget {
+class ResultsScreen extends ConsumerStatefulWidget {
   const ResultsScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<ResultsScreen> createState() => _ResultsScreenState();
+}
+
+class _ResultsScreenState extends ConsumerState<ResultsScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _maybeShowAd();
+  }
+
+  Future<void> _maybeShowAd() async {
+    final prefs = ref.read(preferencesServiceProvider);
+    final count = await prefs.getQuizCount();
+    if (count >= 4 && count % 4 == 0) {
+      InterstitialAd.load(
+        adUnitId: AdManager.interstitialAdUnitId,
+        request: const AdRequest(),
+        adLoadCallback: InterstitialAdLoadCallback(
+          onAdLoaded: (ad) {
+            ad.fullScreenContentCallback = FullScreenContentCallback(
+              onAdDismissedFullScreenContent: (ad) => ad.dispose(),
+              onAdFailedToShowFullScreenContent: (ad, error) => ad.dispose(),
+            );
+            ad.show();
+          },
+          onAdFailedToLoad: (error) {},
+        ),
+      );
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     final s = ref.watch(quizControllerProvider);
     final score = s?.score ?? 0;
     final total = s?.total ?? 0;
