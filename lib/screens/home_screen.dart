@@ -35,6 +35,31 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     super.dispose();
   }
 
+  void _showRewardedAd() {
+    RewardedAd.load(
+      adUnitId: AdManager.rewardedAdUnitId,
+      request: const AdRequest(),
+      rewardedAdLoadCallback: RewardedAdLoadCallback(
+        onAdLoaded: (ad) {
+          ad.fullScreenContentCallback = FullScreenContentCallback(
+            onAdDismissedFullScreenContent: (ad) => ad.dispose(),
+            onAdFailedToShowFullScreenContent: (ad, error) => ad.dispose(),
+          );
+          ad.show(
+            onUserEarnedReward: (ad, reward) {
+              ref.read(heartsControllerProvider.notifier).addHeart();
+            },
+          );
+        },
+        onAdFailedToLoad: (error) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(content: Text('Failed to load ad: ${error.message}')),
+          );
+        },
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final locale = ref.watch(settingsControllerProvider).locale;
@@ -98,15 +123,38 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 children: [
                   Row(
                     mainAxisAlignment: MainAxisAlignment.center,
-                    children: List.generate(
-                      HeartsController.maxHearts,
-                      (i) => Icon(
-                        i < hearts.hearts
-                            ? Icons.favorite
-                            : Icons.favorite_border,
-                        color: Colors.red,
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      ...List.generate(
+                        HeartsController.maxHearts,
+                        (i) => Icon(
+                          i < hearts.hearts
+                              ? Icons.favorite
+                              : Icons.favorite_border,
+                          color: Colors.red,
+                        ),
                       ),
-                    ),
+                      IconButton(
+                        iconSize: 24,
+                        padding: EdgeInsets.zero,
+                        icon: Stack(
+                          alignment: Alignment.center,
+                          children: const [
+                            Icon(Icons.favorite, color: Colors.red),
+                            Positioned(
+                              right: 0,
+                              bottom: 0,
+                              child: Icon(
+                                Icons.add,
+                                size: 12,
+                                color: Colors.white,
+                              ),
+                            ),
+                          ],
+                        ),
+                        onPressed: _showRewardedAd,
+                      ),
+                    ],
                   ),
                   const SizedBox(height: 16),
                   Expanded(
