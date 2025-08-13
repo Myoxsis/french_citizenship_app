@@ -15,12 +15,6 @@ class PrimaryButton extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 6),
       child: FilledButton(
         onPressed: onPressed,
-        style: FilledButton.styleFrom(
-          minimumSize: const Size.fromHeight(52),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16),
-          ),
-        ),
         child: Text(label),
       ),
     );

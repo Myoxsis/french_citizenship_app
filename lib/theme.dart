@@ -50,6 +50,19 @@ ThemeData buildTheme(bool dark) {
     colorScheme: scheme,
     textTheme: textTheme,
     visualDensity: VisualDensity.comfortable,
+    filledButtonTheme: FilledButtonThemeData(
+      style: ButtonStyle(
+        backgroundColor: WidgetStatePropertyAll(scheme.primary),
+        foregroundColor: WidgetStatePropertyAll(scheme.onPrimary),
+        overlayColor:
+            WidgetStatePropertyAll(scheme.onPrimary.withOpacity(0.1)),
+        shape: WidgetStatePropertyAll(
+          const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(16)),
+          ),
+        ),
+      ),
+    ),
     extensions: [statusColors],
     cardTheme: const CardThemeData(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
