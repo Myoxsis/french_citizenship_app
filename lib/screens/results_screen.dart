@@ -51,15 +51,19 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen> {
     final score = s?.score ?? 0;
     final total = s?.total ?? 0;
     final percent = total == 0 ? 0.0 : score / total;
+    final scheme = Theme.of(context).colorScheme;
     final color = percent >= 0.8
-        ? Colors.green
+        ? scheme.primary
         : percent >= 0.5
-            ? Colors.orange
-            : Colors.red;
+            ? scheme.tertiary
+            : scheme.secondary;
     return Scaffold(
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: Text('results_title'.tr()),
+        title: Text(
+          'results_title'.tr(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ),
       body: Center(
         child: Column(
@@ -104,7 +108,10 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen> {
               ],
             ),
             const SizedBox(height: 8),
-            Text('results_correct'.tr()),
+            Text(
+              'results_correct'.tr(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
             const SizedBox(height: 24),
             FilledButton(
               onPressed: () => context.pushNamed(AppRoute.review.name),

@@ -15,7 +15,10 @@ class ReviewScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: const Text('Review'),
+        title: Text(
+          'Review',
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ),
       body: FutureBuilder<(Set<String>, List<Question>)>(
         future: _load(ref),
@@ -27,14 +30,25 @@ class ReviewScreen extends ConsumerWidget {
               .where((q) => mistakes.contains(q.id))
               .toList();
           if (filtered.isEmpty)
-            return const Center(child: Text('Aucune erreur enregistrée.'));
+            return Center(
+              child: Text(
+                'Aucune erreur enregistrée.',
+                style: Theme.of(context).textTheme.bodyMedium,
+              ),
+            );
           return ListView.builder(
             itemCount: filtered.length,
             itemBuilder: (_, i) {
               final q = filtered[i];
               return ListTile(
-                title: Text(q.prompt),
-                subtitle: Text(q.explanation ?? ''),
+                title: Text(
+                  q.prompt,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                subtitle: Text(
+                  q.explanation ?? '',
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
               );
             },
           );

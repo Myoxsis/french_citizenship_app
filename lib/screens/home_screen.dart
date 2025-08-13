@@ -113,7 +113,12 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: Text('app_title'.tr())),
+      appBar: AppBar(
+        title: Text(
+          'app_title'.tr(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
+      ),
       body: Column(
         children: [
           Expanded(
@@ -131,7 +136,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           i < hearts.hearts
                               ? Icons.favorite
                               : Icons.favorite_border,
-                          color: Colors.red,
+                          color:
+                              Theme.of(context).colorScheme.secondary,
                         ),
                       ),
                       IconButton(
@@ -139,15 +145,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         padding: EdgeInsets.zero,
                         icon: Stack(
                           alignment: Alignment.center,
-                          children: const [
-                            Icon(Icons.favorite, color: Colors.red),
+                          children: [
+                            Icon(
+                              Icons.favorite,
+                              color: Theme.of(context).colorScheme.secondary,
+                            ),
                             Positioned(
                               right: 0,
                               bottom: 0,
                               child: Icon(
                                 Icons.add,
                                 size: 12,
-                                color: Colors.white,
+                                color:
+                                    Theme.of(context).colorScheme.onSecondary,
                               ),
                             ),
                           ],
@@ -225,6 +235,7 @@ class _ActionCard extends StatelessWidget {
               Text(
                 action.label,
                 textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleLarge,
               ),
             ],
           ),
