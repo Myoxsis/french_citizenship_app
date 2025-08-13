@@ -41,6 +41,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
           'quiz_question'.tr(
             namedArgs: {'index': '${s.index + 1}', 'total': '${s.total}'},
           ),
+          style: Theme.of(context).textTheme.titleLarge,
         ),
       ),
       body: Padding(
@@ -93,6 +94,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                       s.index == s.total - 1
                           ? 'quiz_finish'.tr()
                           : 'quiz_next'.tr(),
+                      style: Theme.of(context).textTheme.titleLarge,
                     ),
                   ),
                 ),

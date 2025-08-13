@@ -2,17 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 ThemeData buildTheme(bool dark) {
+  // Brand colors
+  const primary = Color(0xFF0055A4);
+  const secondary = Color(0xFFEF4135);
+  const neutral = Color(0xFF6C757D);
+
   final scheme = ColorScheme.fromSeed(
-    seedColor: const Color(0xFF0055A4),
-    secondary: const Color(0xFFEF4135),
+    seedColor: primary,
+    secondary: secondary,
+    tertiary: neutral,
     brightness: dark ? Brightness.dark : Brightness.light,
+  ).copyWith(
+    onPrimary: Colors.white,
+    onSecondary: Colors.white,
+    onTertiary: dark ? Colors.black : Colors.white,
   );
+
   final baseTextTheme =
       (dark ? ThemeData.dark() : ThemeData.light()).textTheme;
+  final textTheme = GoogleFonts.montserratTextTheme(baseTextTheme).copyWith(
+    headlineMedium: GoogleFonts.montserrat(
+      textStyle: baseTextTheme.headlineMedium,
+      fontWeight: FontWeight.bold,
+    ),
+    titleLarge: GoogleFonts.montserrat(
+      textStyle: baseTextTheme.titleLarge,
+      fontWeight: FontWeight.w600,
+    ),
+    bodyMedium: GoogleFonts.montserrat(
+      textStyle: baseTextTheme.bodyMedium,
+    ),
+  );
+
   return ThemeData(
     useMaterial3: true,
     colorScheme: scheme,
-    textTheme: GoogleFonts.montserratTextTheme(baseTextTheme),
+    textTheme: textTheme,
     visualDensity: VisualDensity.comfortable,
     cardTheme: const CardThemeData(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),

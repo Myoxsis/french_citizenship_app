@@ -15,13 +15,19 @@ class SettingsScreen extends ConsumerWidget {
     return Scaffold(
       appBar: AppBar(
         leading: const AppBackButton(),
-        title: Text('settings_title'.tr()),
+        title: Text(
+          'settings_title'.tr(),
+          style: Theme.of(context).textTheme.titleLarge,
+        ),
       ),
       body: ListView(
         padding: const EdgeInsets.all(16),
         children: [
           ListTile(
-            title: Text('settings_language'.tr()),
+            title: Text(
+              'settings_language'.tr(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
             trailing: DropdownButton<QuizLocale>(
               value: settings.locale,
               onChanged: (val) => val == null
@@ -36,7 +42,10 @@ class SettingsScreen extends ConsumerWidget {
             ),
           ),
           SwitchListTile(
-            title: Text('settings_darkmode'.tr()),
+            title: Text(
+              'settings_darkmode'.tr(),
+              style: Theme.of(context).textTheme.bodyMedium,
+            ),
             value: settings.darkMode,
             onChanged: (v) =>
                 ref.read(settingsControllerProvider.notifier).toggleDark(v),
@@ -47,15 +56,24 @@ class SettingsScreen extends ConsumerWidget {
               final ok = await showDialog<bool>(
                 context: context,
                 builder: (_) => AlertDialog(
-                  title: Text('dialog_confirm'.tr()),
+                  title: Text(
+                    'dialog_confirm'.tr(),
+                    style: Theme.of(context).textTheme.titleLarge,
+                  ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context, false),
-                      child: Text('dialog_cancel'.tr()),
+                      child: Text(
+                        'dialog_cancel'.tr(),
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
                     ),
                     FilledButton(
                       onPressed: () => Navigator.pop(context, true),
-                      child: Text('dialog_confirm'.tr()),
+                      child: Text(
+                        'dialog_confirm'.tr(),
+                        style: Theme.of(context).textTheme.bodyMedium,
+                      ),
                     ),
                   ],
                 ),
@@ -71,7 +89,10 @@ class SettingsScreen extends ConsumerWidget {
                 );
               }
             },
-            child: Text('settings_reset'.tr()),
+            child: Text(
+              'settings_reset'.tr(),
+              style: Theme.of(context).textTheme.titleLarge,
+            ),
           ),
         ],
       ),
