@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'theme_extensions.dart';
+
 ThemeData buildTheme(bool dark) {
   // Brand colors
   const primary = Color(0xFF0055A4);
@@ -16,6 +18,12 @@ ThemeData buildTheme(bool dark) {
     onPrimary: Colors.white,
     onSecondary: Colors.white,
     onTertiary: dark ? Colors.black : Colors.white,
+  );
+
+  final statusColors = StatusColors(
+    success: const Color(0xFF4CAF50),
+    warning: const Color(0xFFFFC107),
+    error: scheme.error,
   );
 
   final baseTextTheme =
@@ -39,6 +47,7 @@ ThemeData buildTheme(bool dark) {
     colorScheme: scheme,
     textTheme: textTheme,
     visualDensity: VisualDensity.comfortable,
+    extensions: [statusColors],
     cardTheme: const CardThemeData(
       margin: EdgeInsets.symmetric(vertical: 8, horizontal: 12),
       elevation: 1,

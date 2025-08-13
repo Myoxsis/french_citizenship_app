@@ -1,13 +1,17 @@
+import 'dart:math' as math;
+
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 import 'package:google_mobile_ads/google_mobile_ads.dart';
+
 import '../app_router.dart';
 import '../providers/quiz_controller.dart';
 import '../providers/heart_controller.dart';
 import '../providers/settings_controller.dart';
 import '../services/ad_manager.dart';
+import '../theme_extensions.dart';
 import '../widgets/app_back_button.dart';
 
 class ResultsScreen extends ConsumerStatefulWidget {
@@ -51,12 +55,12 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen> {
     final score = s?.score ?? 0;
     final total = s?.total ?? 0;
     final percent = total == 0 ? 0.0 : score / total;
-    final scheme = Theme.of(context).colorScheme;
+    final status = Theme.of(context).extension<StatusColors>()!;
     final color = percent >= 0.8
-        ? scheme.primary
+        ? status.success
         : percent >= 0.5
-            ? scheme.tertiary
-            : scheme.secondary;
+            ? status.warning
+            : status.error;
     return Scaffold(
       appBar: AppBar(
         leading: const AppBackButton(),
@@ -69,24 +73,54 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen> {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
-              'results_score'.tr(),
-              style: Theme.of(context).textTheme.headlineMedium,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/app_logo.png',
+                  width: 40,
+                  height: 40,
+                  semanticLabel: 'App logo',
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'results_score'.tr(),
+                  style: Theme.of(context).textTheme.headlineMedium,
+                ),
+              ],
             ),
             const SizedBox(height: 16),
             Stack(
               alignment: Alignment.center,
               children: [
-                SizedBox(
-                  height: 150,
-                  width: 150,
-                  child: CircularProgressIndicator(
-                    value: percent,
-                    strokeWidth: 12,
-                    backgroundColor:
-                        Theme.of(context).colorScheme.surfaceVariant,
-                    valueColor: AlwaysStoppedAnimation(color),
-                  ),
+                TweenAnimationBuilder<double>(
+                  tween: Tween(begin: 0, end: percent),
+                  duration: const Duration(milliseconds: 1200),
+                  builder: (context, value, child) {
+                    return ShaderMask(
+                      shaderCallback: (rect) {
+                        return SweepGradient(
+                          startAngle: 0,
+                          endAngle: 2 * math.pi,
+                          colors: [
+                            color.withOpacity(0.3),
+                            color,
+                          ],
+                        ).createShader(rect);
+                      },
+                      child: SizedBox(
+                        height: 150,
+                        width: 150,
+                        child: CircularProgressIndicator(
+                          value: value,
+                          strokeWidth: 12,
+                          backgroundColor:
+                              Theme.of(context).colorScheme.surfaceVariant,
+                          valueColor: const AlwaysStoppedAnimation(Colors.white),
+                        ),
+                      ),
+                    );
+                  },
                 ),
                 Column(
                   mainAxisSize: MainAxisSize.min,
@@ -108,9 +142,21 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen> {
               ],
             ),
             const SizedBox(height: 8),
-            Text(
-              'results_correct'.tr(),
-              style: Theme.of(context).textTheme.bodyMedium,
+            Row(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Image.asset(
+                  'assets/app_logo.png',
+                  width: 24,
+                  height: 24,
+                  semanticLabel: 'App logo',
+                ),
+                const SizedBox(width: 8),
+                Text(
+                  'results_correct'.tr(),
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ],
             ),
             const SizedBox(height: 24),
             FilledButton(
