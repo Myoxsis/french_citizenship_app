@@ -92,6 +92,7 @@ class QuizController extends StateNotifier<QuizState?> {
       if (s.total == 15 && score > prevBest) {
         await prefs.setBestScore15(score);
       }
+      await prefs.incrementQuizCount();
       _ref.read(analyticsProvider).logEvent('quiz_finish', {
         'score': score,
         'total': s.total,

@@ -7,6 +7,7 @@ class PreferencesService {
   static const _kBestScoreKey = 'best_score_15';
   static const _kHeartsKey = 'hearts_count';
   static const _kNextHeartKey = 'next_heart_ms';
+  static const _kQuizCountKey = 'quiz_count';
 
   Future<SharedPreferences> get _prefs async => SharedPreferences.getInstance();
 
@@ -49,6 +50,17 @@ class PreferencesService {
   Future<int> getBestScore15() async {
     final p = await _prefs;
     return p.getInt(_kBestScoreKey) ?? 0;
+  }
+
+  Future<void> incrementQuizCount() async {
+    final p = await _prefs;
+    final current = p.getInt(_kQuizCountKey) ?? 0;
+    await p.setInt(_kQuizCountKey, current + 1);
+  }
+
+  Future<int> getQuizCount() async {
+    final p = await _prefs;
+    return p.getInt(_kQuizCountKey) ?? 0;
   }
 
   Future<void> resetAll() async {
