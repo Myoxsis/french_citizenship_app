@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import '../services/preferences_service.dart';
+import 'settings_controller.dart';
 
 class HeartsState {
   final int hearts;
@@ -41,16 +41,13 @@ class HeartsController extends StateNotifier<HeartsState> {
     var hearts = state.hearts;
     DateTime? next = state.nextRegen;
     final now = DateTime.now();
-    if (next != null) {
-      while (!now.isBefore(next)) {
-        hearts++;
-        if (hearts >= maxHearts) {
-          hearts = maxHearts;
-          next = null;
-          break;
-        } else {
-          next = next.add(regenDuration);
-        }
+    while (next != null && !now.isBefore(next)) {
+      hearts++;
+      if (hearts >= maxHearts) {
+        hearts = maxHearts;
+        next = null;
+      } else {
+        next = next!.add(regenDuration);
       }
     }
     state = HeartsState(hearts: hearts, nextRegen: next);
