@@ -61,6 +61,30 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
+  Future<void> _confirmWatchAd() async {
+    final consent = await showDialog<bool>(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('home_ad_title'.tr()),
+        content: Text('home_ad_content'.tr()),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(false),
+            child: Text('dialog_cancel'.tr()),
+          ),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(true),
+            child: Text('home_ad_watch'.tr()),
+          ),
+        ],
+      ),
+    );
+
+    if (consent == true) {
+      _showRewardedAd();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final locale = ref.watch(settingsControllerProvider).locale;
@@ -155,29 +179,43 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               Theme.of(context).colorScheme.secondary,
                         ),
                       ),
-                      IconButton(
-                        iconSize: 24,
-                        padding: EdgeInsets.zero,
-                        icon: Stack(
-                          alignment: Alignment.center,
-                          children: [
-                            Icon(
-                              Icons.favorite,
-                              color: Theme.of(context).colorScheme.secondary,
-                            ),
-                            Positioned(
-                              right: 0,
-                              bottom: 0,
-                              child: Icon(
-                                Icons.add,
-                                size: 12,
+                      Tooltip(
+                        message: 'home_ad_tooltip'.tr(),
+                        child: IconButton(
+                          iconSize: 32,
+                          padding: EdgeInsets.zero,
+                          icon: Stack(
+                            alignment: Alignment.center,
+                            children: [
+                              Icon(
+                                Icons.favorite,
                                 color:
-                                    Theme.of(context).colorScheme.onSecondary,
+                                    Theme.of(context).colorScheme.secondary,
                               ),
-                            ),
-                          ],
+                              Positioned(
+                                right: 0,
+                                bottom: 0,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                    shape: BoxShape.circle,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .primary,
+                                  ),
+                                  padding: const EdgeInsets.all(2),
+                                  child: Icon(
+                                    Icons.add,
+                                    size: 16,
+                                    color: Theme.of(context)
+                                        .colorScheme
+                                        .onPrimary,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          onPressed: _confirmWatchAd,
                         ),
-                        onPressed: _showRewardedAd,
                       ),
                     ],
                   ),

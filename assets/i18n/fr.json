@@ -23,5 +23,9 @@
   "dialog_confirm": "Confirmer",
   "dialog_cancel": "Annuler",
   "home_hero_title": "Prêt à apprendre ?",
-  "home_no_hearts": "Pas assez de coeurs"
+  "home_no_hearts": "Pas assez de coeurs",
+  "home_ad_title": "Regarder une pub ?",
+  "home_ad_content": "Regardez une courte publicité pour gagner un cœur.",
+  "home_ad_watch": "Regarder",
+  "home_ad_tooltip": "Regarder une pub pour gagner un cœur"
 }
