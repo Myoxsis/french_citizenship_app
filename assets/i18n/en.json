@@ -23,5 +23,9 @@
   "dialog_confirm": "Confirm",
   "dialog_cancel": "Cancel",
   "home_hero_title": "Ready to learn?",
-  "home_no_hearts": "Not enough hearts"
+  "home_no_hearts": "Not enough hearts",
+  "home_ad_title": "Watch an ad?",
+  "home_ad_content": "Watch a short advertisement to gain one heart.",
+  "home_ad_watch": "Watch",
+  "home_ad_tooltip": "Watch an ad to gain a heart"
 }
