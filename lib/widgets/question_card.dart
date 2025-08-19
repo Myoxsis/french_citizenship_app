@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/question.dart';
+import '../theme_extensions.dart';
 
 class QuestionCard extends StatelessWidget {
   final Question question;
@@ -26,43 +27,50 @@ class QuestionCard extends StatelessWidget {
             ),
             const SizedBox(height: 12),
             ...List.generate(question.choices.length, (i) {
+              final status =
+                  Theme.of(context).extension<StatusColors>()!;
+              final isAnswered = selectedIndex != null;
               final isSelected = selectedIndex == i;
+              final isCorrect = question.answerIndex == i;
+
+              Color borderColor = Theme.of(context).dividerColor;
+              Color? fillColor;
+              Color activeColor = Theme.of(context).colorScheme.primary;
+
+              if (isAnswered) {
+                if (isCorrect) {
+                  borderColor = status.success;
+                  fillColor = status.success.withOpacity(0.1);
+                  activeColor = status.success;
+                } else if (isSelected) {
+                  borderColor = status.error;
+                  fillColor = status.error.withOpacity(0.1);
+                  activeColor = status.error;
+                }
+              } else if (isSelected) {
+                borderColor = Theme.of(context).colorScheme.primary;
+                fillColor = Theme.of(context)
+                    .colorScheme
+                    .primary
+                    .withOpacity(0.1);
+              }
+
               return AnimatedContainer(
                 duration: const Duration(milliseconds: 200),
                 margin: const EdgeInsets.symmetric(vertical: 4),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
-                  color: isSelected
-                      ? Theme.of(context)
-                          .colorScheme
-                          .primary
-                          .withOpacity(0.1)
-                      : null,
-                  border: Border.all(
-                    color: isSelected
-                        ? Theme.of(context).colorScheme.primary
-                        : Theme.of(context).dividerColor,
-                  ),
-                  boxShadow: isSelected
-                      ? [
-                          BoxShadow(
-                            color: Theme.of(context)
-                                .colorScheme
-                                .primary
-                                .withOpacity(0.3),
-                            blurRadius: 4,
-                            offset: const Offset(0, 2),
-                          ),
-                        ]
-                      : [],
+                  color: fillColor,
+                  border: Border.all(color: borderColor),
                 ),
                 child: RadioListTile<int>(
                   value: i,
                   groupValue: selectedIndex,
-                  onChanged: (val) => onSelected(val!),
+                  onChanged:
+                      isAnswered ? null : (val) => onSelected(val!),
                   title: Text(question.choices[i]),
                   controlAffinity: ListTileControlAffinity.leading,
-                  activeColor: Theme.of(context).colorScheme.primary,
+                  activeColor: activeColor,
                   contentPadding:
                       const EdgeInsets.symmetric(horizontal: 12),
                 ),
