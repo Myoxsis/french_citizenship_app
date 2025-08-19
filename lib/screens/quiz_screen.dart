@@ -85,7 +85,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
             Row(
               children: [
                 Expanded(
-                  child: ElevatedButton(
+                  child: FilledButton(
                     onPressed: s.index == s.total - 1
                         ? () => _finishOrNext(context)
                         : () =>

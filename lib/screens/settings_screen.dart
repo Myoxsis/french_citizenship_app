@@ -51,7 +51,7 @@ class SettingsScreen extends ConsumerWidget {
                 ref.read(settingsControllerProvider.notifier).toggleDark(v),
           ),
           const Divider(),
-          ElevatedButton(
+          FilledButton(
             onPressed: () async {
               final ok = await showDialog<bool>(
                 context: context,

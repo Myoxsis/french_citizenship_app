@@ -4,10 +4,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'theme_extensions.dart';
 
 ThemeData buildTheme(bool dark) {
-  // Brand colors
-  const primary = Color(0xFF003A70);
-  const secondary = Color(0xFFE64545);
-  const neutral = Color(0xFF64748B);
+  // Brand colors (professional palette)
+  const primary = Color(0xFF1E3A8A); // deep navy
+  const secondary = Color(0xFFC5A880); // warm gold
+  const neutral = Color(0xFF4B5563); // cool gray
 
   Color onColor(Color color) =>
       color.computeLuminance() > 0.5 ? Colors.black : Colors.white;
@@ -24,8 +24,8 @@ ThemeData buildTheme(bool dark) {
   );
 
   final statusColors = StatusColors(
-    success: const Color(0xFF4CAF50),
-    warning: const Color(0xFFFFC107),
+    success: const Color(0xFF2E7D32), // refined green
+    warning: const Color(0xFFED6C02), // amber tone
     error: scheme.error,
   );
 
